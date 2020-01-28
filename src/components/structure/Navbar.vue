@@ -31,7 +31,7 @@
               href='#'
               @click.prevent="openDropdown('telefones')"
             )
-              img(:src="this.imgTelefone")
+              span.icon.icon-telephone
               p TELEFONES
             .dropdown-menu.--telefones(v-show="isOpenTelefones")
               a#navbarDropdownMenuLink.nav-link.dropdown-toggle(
@@ -39,18 +39,13 @@
                 @click.prevent="openDropdown('sub-01-telefone')"
               ) Toyota Nações Unidas
               .dropdown-menu.--relative(v-show="isOpenSub01Telefone")
+                a.dropdown-item(href='#') (11) 3500-7909 | <span>Vendas</span>
                 a.dropdown-item(href='#') (11) 3500-7909 | <span>Serviços</span>
               a#navbarDropdownMenuLink.nav-link.dropdown-toggle(
                 href='#'
                 @click.prevent="openDropdown('sub-02-telefone')"
               ) Toyota Morombi
               .dropdown-menu.--relative(v-show="isOpenSub02Telefone")
-                a.dropdown-item(href='#') (11) 3500-7909 | <span>Serviços</span>
-              a#navbarDropdownMenuLink.nav-link.dropdown-toggle(
-                href='#'
-                @click.prevent="openDropdown('sub-03-telefone')"
-              ) Toyota Morombi
-              .dropdown-menu.--relative(v-show="isOpenSub03Telefone")
                 a.dropdown-item(href='#') (11) 3500-7909 | <span>Serviços</span>
         a.navbar-brand(href='#' @click.prevent)
           img(:src="this.imgBand")
@@ -164,6 +159,10 @@ export default {
       overflow-y: auto;
       padding: 0;
       margin: 0;
+      box-shadow: 0px 1px 1px #ddd,0px 5px 5px #111111;
+      &:hover{
+        box-shadow: 0px 1px 1px #ddd,0 5px 5px #ccc;
+      }
         &.--veiculos{
           height: 280px;
           width: 260px;
@@ -188,7 +187,7 @@ export default {
         }
       }
       .vendas-diretas{
-        padding: 20px 20px 0 20px;
+        padding: 12px 20px 0 20px;
       }
       &::-webkit-scrollbar{
         width: 10px;
@@ -220,22 +219,40 @@ export default {
         margin: 0 60px;
         border: 2px solid #fff;
         &:hover{
-          border-color: $link-hover-color;
+          border-color: #b61d3e;
+        }
+        &:hover a{
+          border-color: #b61d3e;
+          color: #b61d3e !important;
+        }
+        &:hover .icon-telephone {
+          filter: invert(15%) sepia(92%) saturate(2789%) hue-rotate(333deg) brightness(97%) contrast(93%);
         }
         a {
           padding: 10px 15px;
           display: flex;
+          &:hover{
+            color: #b61d3e !important;
+          }
         }
-        img {
+        .icon {
           margin-right: 5px;
+          background-size: cover;
+          width: 15px;
+          height: 15px;
+        }
+        .icon-telephone {
+          background-image: url('../../assets/telephone.svg');
+          filter: invert(100%) sepia(96%) saturate(0%) hue-rotate(81deg) brightness(104%) contrast(105%);
+
         }
       }
       .nav-item{
         a{
           font-weight: $font-weight-semi-bold;
           color: $color-font !important;
-          &:hover{
-            color: $link-hover-color !important;
+          &:hover, &:active{
+            color: $link-hover-color;
           }
         }
       }
@@ -251,6 +268,7 @@ export default {
           }
           &.--relative{
             position: initial;
+            box-shadow: none;
             a{
               color: $color-font !important;
             }
@@ -266,6 +284,9 @@ export default {
           color: $color-black !important;
           &:hover a {
             color: $link-hover-color !important;
+          }
+          &:active{
+            background-color: $color-gray-lighter !important;
           }
         }
       }
