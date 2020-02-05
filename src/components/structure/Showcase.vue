@@ -57,6 +57,13 @@
             button(type="button") SIMULAR FINCANCIAMENTO
           .politica
             a(href="#" title="Política de provacidade") Política de provacidade
+      .head-line
+        h1 ETIOS HATCH 2017 x 1.3 manual
+        h2 Você tem mais para descobrir
+        .price
+          h3 de R$ 44.120,00
+          h4 por  <strike> R$ 40.987,00 </strike>
+          p *Consulte as Condições Comerciais
 </template>
 
 <script>
@@ -68,7 +75,7 @@ export default {
   },
   data () {
     return {
-      videoID: '266703358 ',
+      videoID: '99088718',
       playerReady: true
     }
   },
@@ -99,6 +106,8 @@ export default {
     top: 20%;
     right: 5%;
     padding: 0 $padding-small;
+    display: flex;
+    flex-direction: row;
     .isca{
       background-color: rgba(24, 22, 22, .5);
       border: $border;
@@ -281,7 +290,7 @@ export default {
         }
       }
       .button button{
-        width: 271px;
+        width: 100%;
         height: 41px;
         color: $color-white;
         border: $border;
@@ -301,6 +310,25 @@ export default {
           color: $color-font;
           text-decoration: $link-hover-decoration;
         }
+      }
+    }
+    .head-line{
+      max-width: 340px;
+      padding: $padding-base;
+      text-align: start;
+      h1, h2{
+        font-weight: $font-weight-bold;
+      }
+      h1{
+        font-size: $font-size-h1;
+      }
+      h2{
+        font-size: $font-size-h2
+      }
+      .price{
+        filter: drop-shadow(0px 1px 3.5px rgba(0,0,0,0.75));
+        font-weight: $font-weight-semi-bold;
+        margin-top: 60px;
       }
     }
   }
