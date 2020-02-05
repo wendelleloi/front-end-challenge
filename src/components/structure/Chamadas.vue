@@ -1,5 +1,5 @@
 <template lang="pug">
-  .chamadas-section
+  .chamadas-section.container-fluid.no-gutters
     .wrapper(v-for="(chamada, key) in this.chamadas" :key="key")
       .title
         h2 {{chamada.title}}
@@ -25,6 +25,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~bootstrap/scss/bootstrap';
+  .no-gutters{
+    padding: 0;
+  }
   .chamadas-section{
     display: flex;
     flex-direction: row;
