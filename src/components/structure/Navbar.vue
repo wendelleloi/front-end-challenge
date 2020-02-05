@@ -26,7 +26,7 @@
             ) Vendas Diretas
             .dropdown-menu.--vendas(v-show="isOpenVendas")
               a.dropdown-item.vendas-diretas(href='#' v-for="(venda, index) in this.dropdownVendas" :key="index") {{ venda.label }}
-          li.nav-item.dropdown.telephones
+          li.nav-item.dropdown.telephones(v-click-outside="closeDropdownTelefones")
             a#navbarDropdownMenuLink.nav-link.dropdown-toggle(
               href='#'
               @click.prevent="openDropdown('telefones')"
@@ -61,7 +61,6 @@ export default {
       isOpenTelefones: false,
       isOpenSub01Telefone: false,
       isOpenSub02Telefone: false,
-      isOpenSub03Telefone: false,
       isMobile: false,
       imgLogo: require('../../assets/Background.svg'),
       imgBand: require('../../assets/Background-toyota.svg'),
@@ -99,10 +98,14 @@ export default {
         this.isOpenTelefones = !this.isOpenTelefones
       } else if (dropdown === 'sub-01-telefone') {
         this.isOpenSub01Telefone = !this.isOpenSub01Telefone
+        if (this.isOpenSub02Telefone) {
+          this.isOpenSub02Telefone = !this.isOpenSub02Telefone
+        }
       } else if (dropdown === 'sub-02-telefone') {
         this.isOpenSub02Telefone = !this.isOpenSub02Telefone
-      } else if (dropdown === 'sub-03-telefone') {
-        this.isOpenSub03Telefone = !this.isOpenSub03Telefone
+        if (this.isOpenSub01Telefone) {
+          this.isOpenSub01Telefone = !this.isOpenSub01Telefone
+        }
       }
     },
     closeDropdownServiços () {
@@ -113,6 +116,8 @@ export default {
     },
     closeDropdownTelefones () {
       this.isOpenTelefones = false
+      this.isOpenSub01Telefone = false
+      this.isOpenSub02Telefone = false
     },
     openMenuCollapse () {
       this.isMobile = !this.isMobile
@@ -125,6 +130,17 @@ export default {
 <style lang="scss">
   @import '~bootstrap/scss/bootstrap';
   .custom-nav-bar{
+    position: absolute;
+    z-index: 1;
+    right: 5%;
+    margin-top: 40px;
+    @media screen and (max-width: 1024px) {
+      right: 0;
+      margin-top: 20px;
+    }
+    .navbar-toggler{
+      border-color: #fff;
+    }
     .dropdown-toggle::after {
       margin-top: 5px;
     }
