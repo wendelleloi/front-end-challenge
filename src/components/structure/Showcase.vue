@@ -64,6 +64,21 @@
           h3 de R$ 44.120,00
           h4 por  <strike> R$ 40.987,00 </strike>
           p *Consulte as Condições Comerciais
+        .social
+          p Gostou? Então compartilhe.
+          ul
+            li
+              .social-icons
+                i.fa.fa-facebook-square
+                | Share
+              span.facebook 378k
+            li
+              .social-icons
+                i.fa.fa-facebook-square
+                | Like
+              span.facebook 229k
+          p *Imagens meramente ilustrativas. Alguns itens apresentados poderão não estar disponíveis nas versoes. Preços sugeridos e válidos até 31/07/2015. Os preços poderão ser modificadas sem aviso prévio. Consulte e confirme todas as informações com um de nossos vendedores..
+
 </template>
 
 <script>
@@ -315,6 +330,7 @@ export default {
     .head-line{
       max-width: 340px;
       padding: $padding-base;
+      padding-bottom: 0;
       text-align: start;
       h1, h2{
         font-weight: $font-weight-bold;
@@ -329,6 +345,59 @@ export default {
         filter: drop-shadow(0px 1px 3.5px rgba(0,0,0,0.75));
         font-weight: $font-weight-semi-bold;
         margin-top: 60px;
+      }
+      .social{
+        margin-top: 60%;
+        width: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        ul{
+          list-style: none;
+          padding: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .facebook{
+            position:relative;
+            background: #f2f2f5;
+            color: black;
+            margin-left: 10px;
+            height: 20px;
+            width: 40px;
+            &::after{
+              content: "";
+              z-index: 0;
+              position: absolute;
+              top: 5px;
+              right: 32px;
+              background: #f2f2f5;
+              color: #f2f2f5;
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+              border-width: 0px 10px 10px 0px;
+              border-style: solid;
+            }
+          }
+          li{
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            .social-icons{
+              height: 20px;
+              width: 60px;
+              background-color: $color-facebook;
+            }
+            i{
+              height: 12px;
+              width: 12px;
+              margin-right: 5px;
+            }
+          }
+        }
       }
     }
   }
