@@ -11,7 +11,8 @@
     "bootstrap": "^4.4.1",
     "core-js": "^3.4.4",
     "v-click-outside": "^3.0.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-vimeo-player": "^0.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",

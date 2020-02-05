@@ -1,14 +1,17 @@
 <template lang="pug">
   .content-app
     NavBar
+    Showcase
 </template>
 
 <script>
 import NavBar from '@/components/structure/Navbar'
+import Showcase from '@/components/structure/Showcase'
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    Showcase
   }
 }
 </script>
@@ -18,9 +21,8 @@ export default {
   font-family: $font-family-base;
   text-align: center;
   color: $color-white;
-  margin-top: 40px;
 }
 body {
-  background-color: magenta;
+  background-color: $color-gray-base;
 }
 </style>
