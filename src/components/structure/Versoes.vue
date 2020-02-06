@@ -17,6 +17,16 @@
             li(v-for="(info, index) in this.informacoesGerais" :class="[index % 2 === 0 ? 'separador': '']")
               span.info {{ info.info }}
               span.geral {{ info.geral }}
+    .itens-serie
+      .title
+        h2 Itens de Série
+      .itens
+        ul
+          li(v-for="(item, index) in this.listaitens" :key="index")
+            | {{ item.label }}
+        ul
+          li(v-for="(item, index) in this.listaitensInferior" :key="index")
+            | {{ item.label }}
 </template>
 
 <script>
@@ -41,6 +51,43 @@ export default {
         { info: 'em rev/min:', geral: '5,500' },
         { info: 'Torque máximo EEC - Nm(libra-pé):', geral: '340' },
         { info: 'em rev/min:', geral: '2.000-4.000' }
+      ],
+      listaitens: [
+        { label: 'Ar condicionado' },
+        { label: 'Airbag' },
+        { label: 'Desembaçador traseiro' },
+        { label: 'Ar quente' },
+        { label: 'Freios ABS' },
+        { label: 'Teto solar' },
+        { label: 'AirBag' },
+        { label: 'Ar condicionado' },
+        { label: 'Airbag' },
+        { label: 'Desembaçador traseiro' },
+        { label: 'Ar quente' },
+        { label: 'Freios ABS' },
+        { label: 'Teto solar' },
+        { label: 'Ar condicionado' },
+        { label: 'Airbag' },
+        { label: 'Desembaçador traseiro' },
+        { label: 'Ar quente' },
+        { label: 'Freios ABS' },
+        { label: 'Teto solar' }
+      ],
+      listaitensInferior: [
+        { label: 'Teto solar' },
+        { label: 'Ar quente' },
+        { label: 'Freios ABS' },
+        { label: 'Teto solat' },
+        { label: 'AirBag' },
+        { label: 'Ar condicionado' },
+        { label: 'Desembaçador traseiro' },
+        { label: 'Teto solar' },
+        { label: 'Ar quente' },
+        { label: 'Freios ABS' },
+        { label: 'Teto solat' },
+        { label: 'AirBag' },
+        { label: 'Ar condicionado' },
+        { label: 'Desembaçador traseiro' }
       ]
     }
   }
@@ -53,12 +100,13 @@ export default {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  height: 470px;
+  min-height: 470px;
   width: 100%;
   margin-top: 72%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   .content-informacoes{
     margin-top: 30px;
     display: flex;
@@ -151,6 +199,49 @@ export default {
               opacity: 1;
             }
           }
+        }
+      }
+    }
+  }
+  .itens-serie{
+    .title {
+      text-align: start;
+      h2{
+        font-size: $font-size-large;
+        font-weight: $font-weight-light;
+      }
+    }
+    .itens{
+      height: 120px;
+      width: 700px;
+      overflow-y: hidden;
+      overflow-x: auto;
+      white-space: nowrap;
+      margin-bottom: 20px;
+      &::-webkit-scrollbar{
+          height: 4px;
+        }
+      &::-webkit-scrollbar-track {
+        background-color: rgba(41,41,41,1);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #d33c5c;
+        background-clip: padding-box;
+        border-radius: 4px;
+        border-right: 2px solid rgba(41,41,41, 1);
+      }
+      ul{
+        list-style: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        li{
+          padding: 5px 10px;
+          background-color: #b71d3d;
+          border-radius: 50px;
+          margin: 5px;
+          font-size: $font-size-small;
+          font-weight: $font-weight-normal;
         }
       }
     }
