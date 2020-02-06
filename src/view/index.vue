@@ -3,17 +3,21 @@
     NavBar
     Showcase
     Chamadas
+    Versoes
 </template>
 
 <script>
 import NavBar from '@/components/structure/Navbar'
 import Showcase from '@/components/structure/Showcase'
 import Chamadas from '@/components/structure/Chamadas'
+import Versoes from '@/components/structure/Versoes'
 
 export default {
+  name: 'index',
   components: {
     NavBar,
     Showcase,
+    Versoes,
     Chamadas
   }
 }
