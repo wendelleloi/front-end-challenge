@@ -5,6 +5,7 @@
     Chamadas
     Versoes
     Carros
+    Footer
 </template>
 
 <script>
@@ -13,6 +14,7 @@ import Showcase from '@/components/structure/Showcase'
 import Chamadas from '@/components/structure/Chamadas'
 import Versoes from '@/components/structure/Versoes'
 import Carros from '@/components/structure/Carros'
+import Footer from '@/components/structure/Footer'
 
 export default {
   name: 'index',
@@ -21,7 +23,8 @@ export default {
     Showcase,
     Versoes,
     Chamadas,
-    Carros
+    Carros,
+    Footer
   }
 }
 </script>
